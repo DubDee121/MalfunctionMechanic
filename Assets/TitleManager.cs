@@ -261,7 +261,6 @@ public class Settings
     public float visualChanceMulti;
     public float powerDrainMulti;
     public float powerRechargeMulti;
-    public AudioClip intercom;
 }
 
 public class NightSettings

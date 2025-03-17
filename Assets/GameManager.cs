@@ -145,11 +145,6 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
-        if (time == intercomDelay)
-        {
-            _soundManager.Sound3D(NightSettings.settings.intercom, intercomPos);
-        }
-
         if (gameEnded)
         {
             _jumpscareCounter -= 1;
