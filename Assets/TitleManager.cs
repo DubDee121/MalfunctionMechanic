@@ -261,6 +261,7 @@ public class Settings
     public float visualChanceMulti;
     public float powerDrainMulti;
     public float powerRechargeMulti;
+    public bool tutorial;
 }
 
 public class NightSettings

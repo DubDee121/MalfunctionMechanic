@@ -41,6 +41,8 @@ public class Player : MonoBehaviour
     private float _initClipboardAngle;
     private float _initClipboardOffset;
     private int _camStaticCounter;
+    private bool _usedCams;
+    private bool _usedClip;
 
 
 
@@ -80,20 +82,25 @@ public class Player : MonoBehaviour
                 hitinfo.collider.gameObject.SendMessage("Interact");
             }
         }
+    }
+    
+    void FixedUpdate()
+    {
+        if (_manager.gameStopped)
+        {
+            return;
+        }
         
         camScreen.localRotation = Quaternion.RotateTowards(camScreen.localRotation, Quaternion.Euler(targetAngle, 0.0f, 0.0f), 900.0f * Time.deltaTime);
         camScreen.localPosition = Vector3.MoveTowards(camScreen.localPosition, new Vector3(0.0f, targetOffset, 1.0f), 9.0f * Time.deltaTime);
         clipboardObject.localRotation = Quaternion.RotateTowards(clipboardObject.localRotation, Quaternion.Euler(clipboardAngle, 0.0f, 0.0f), 900.0f * Time.deltaTime);
         clipboardObject.localPosition = Vector3.MoveTowards(clipboardObject.localPosition, new Vector3(0.0f, clipboardOffset, 1.0f), 9.0f * Time.deltaTime);
-    }
-    
-    void FixedUpdate()
-    {
-        if (_manager.gameStopped | _manager.paused)
+
+        if (_manager.paused)
         {
             return;
         }
-
+        
         if (_manager.powerout)
         {
             if (isInCams)
@@ -165,6 +172,12 @@ public class Player : MonoBehaviour
             _soundManager.Sound3D(camOpen, camObject.position);
             isInCams = true;
             SetCam(camObject);
+            if (NightSettings.settings.tutorial && !_usedCams)
+            {
+                _usedCams = true;
+                _manager.tutorialCams.SetActive(true);
+                _manager.Pause();
+            }
         }
     }
 
@@ -193,6 +206,12 @@ public class Player : MonoBehaviour
             clipboardOffset = -0.5f;
             _soundManager.Sound3D(clipOpen, clipboardObject.position);
             isInClipboard = true;
+            if (NightSettings.settings.tutorial && !_usedClip)
+            {
+                _usedClip = true;
+                _manager.tutorialClip.SetActive(true);
+                _manager.Pause();
+            }
         }
     }
 

@@ -33,8 +33,9 @@ public class GameManager : MonoBehaviour
     public AudioClip poweroutSound;
     public Material buttonInactive;
     public Material buttonActive;
-    public Vector3 intercomPos;
-    public int intercomDelay;
+    public GameObject tutorialStart;
+    public GameObject tutorialCams;
+    public GameObject tutorialClip;
     [Space(20.0f)] [Header("Difficulty modifiers")]
     public float moveDelayMulti;
     public float impatientChanceMulti;
@@ -131,18 +132,35 @@ public class GameManager : MonoBehaviour
             
             statePool.RemoveAt(_index);
         }
+
+        if (NightSettings.settings.tutorial)
+        {
+            Pause();
+            tutorialStart.SetActive(true);
+        }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+                pauseUi.SetActive(true);
+            }
+        }
+    }
+    
     void FixedUpdate()
     {
         if (gameStopped | paused)
         {
             return;
-        }
-
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Pause();
         }
 
         if (gameEnded)
@@ -263,13 +281,15 @@ public class GameManager : MonoBehaviour
     public void Pause()
     {
         paused = true;
-        pauseUi.SetActive(true);
     }
 
     public void Resume()
     {
         paused = false;
         pauseUi.SetActive(false);
+        tutorialStart.SetActive(false);
+        tutorialCams.SetActive(false);
+        tutorialClip.SetActive(false);
     }
 
     public void MainMenu()

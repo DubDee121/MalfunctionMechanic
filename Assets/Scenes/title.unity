@@ -6643,49 +6643,49 @@ MonoBehaviour:
     visualChanceMulti: 1.4
     powerDrainMulti: 1.8
     powerRechargeMulti: 0.67
-    intercom: {fileID: 0}
+    tutorial: 0
   - statePool: 03000000020000000100000001000000010000000000000000000000
     moveMulti: 1.6
     malfunctionsChanceMulti: 0.6
     visualChanceMulti: 1.4
     powerDrainMulti: 1.8
     powerRechargeMulti: 0.67
-    intercom: {fileID: 8300000, guid: 1fa495853b943c14c9354dbf3d6e09e3, type: 3}
+    tutorial: 1
   - statePool: 03000000020000000200000001000000010000000100000001000000
     moveMulti: 1.6
     malfunctionsChanceMulti: 0.6
     visualChanceMulti: 1.4
     powerDrainMulti: 1
     powerRechargeMulti: 1
-    intercom: {fileID: 8300000, guid: ab89fb52a8b07ec428ac08aac386cc7c, type: 3}
+    tutorial: 0
   - statePool: 03000000020000000200000001000000010000000100000001000000
     moveMulti: 1
     malfunctionsChanceMulti: 1
     visualChanceMulti: 1
     powerDrainMulti: 1
     powerRechargeMulti: 1
-    intercom: {fileID: 8300000, guid: 697f0e4dd4b7cb3428456e38e42acb0f, type: 3}
+    tutorial: 0
   - statePool: 03000000020000000200000001000000010000000100000001000000
     moveMulti: 0.8
     malfunctionsChanceMulti: 1.4
     visualChanceMulti: 0.8
     powerDrainMulti: 1
     powerRechargeMulti: 1
-    intercom: {fileID: 8300000, guid: f0941a0742750174f86d54e44371d54c, type: 3}
+    tutorial: 0
   - statePool: 03000000020000000200000002000000010000000100000001000000
     moveMulti: 0.8
     malfunctionsChanceMulti: 1.4
     visualChanceMulti: 0.8
     powerDrainMulti: 0.8
     powerRechargeMulti: 1.2
-    intercom: {fileID: 8300000, guid: f03b0202f59912240a268c4d6195c44b, type: 3}
+    tutorial: 0
   - statePool: 03000000030000000200000002000000010000000100000001000000
     moveMulti: 0.8
     malfunctionsChanceMulti: 1.4
     visualChanceMulti: 0.8
     powerDrainMulti: 0.8
     powerRechargeMulti: 1.2
-    intercom: {fileID: 8300000, guid: 2275309fff1fbe1488fe013cc4b134e0, type: 3}
+    tutorial: 0
 --- !u!82 &961422399
 AudioSource:
   m_ObjectHideFlags: 0
